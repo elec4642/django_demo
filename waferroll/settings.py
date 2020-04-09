@@ -38,7 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'product',
+    'map',
 ]
 
 MIDDLEWARE = [
@@ -82,8 +82,10 @@ DATABASES = {
         'USER': 'allen',
         'PASSWORD': 'tpg12345',
         'PORT': 3306,
-        'HOST': '10.224.18.182',
+        'HOST': '192.168.1.108',
+        # 'HOST': '10.224.45.19',
         # 'HOST': '10.1.1.191',
+        # 'HOST': '127.0.0.1',
     }
 }
 

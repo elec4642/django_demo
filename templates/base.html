@@ -21,6 +21,11 @@
     <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
           rel="stylesheet">
 
+    <!-- Custom fonts for this template-->
+    <link href="{% static 'vendor/fontawesome-free/css/all.min.css' %}" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
+          rel="stylesheet">
+
     <!-- Custom styles for this template-->
     <link href="{% static 'css/sb-admin-2.min.css' %}" rel="stylesheet">
 
@@ -41,6 +46,12 @@
     <script src="https://cdn.bokeh.org/bokeh/release/bokeh-tables-1.4.0.min.js"></script>
 
 
+    {{ map_script | safe }}
+
+    {% block bokeh_map %}
+
+    {% endblock %}
+
 </head>
 
 <body id="page-top">
@@ -52,6 +63,12 @@
     <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
         <!-- Sidebar - Brand -->
+        <a class="sidebar-brand d-flex align-items-center justify-content-center" href="/overview">
+            <div class="sidebar-brand-icon rotate-n-15">
+                <i class="fas fa-laugh-wink"></i>
+            </div>
+            <div class="sidebar-brand-text mx-3">django_demo</div>
+        </a>
 
         <!-- Divider -->
         <hr class="sidebar-divider my-0">
@@ -66,22 +83,22 @@
 
         <!-- Heading -->
         <div class="sidebar-heading">
-            产品
+            views
         </div>
 
         <!-- Nav Item - Pages Collapse Menu -->
         <li class="nav-item">
-            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
-               aria-expanded="true" aria-controls="collapseTwo">
+<!--            <a class="nav-link collapsed" href="http:/www.google.com" data-toggle="collapse" data-target="#collapseTwo"-->
+<!--               aria-expanded="true" aria-controls="collapseTwo">-->
+            <a class="nav-link collapsed" href="/overview">
                 <i class="fas fa-fw fa-cog"></i>
-                <span>奶粉</span>
+                <span>overview</span>
             </a>
-            <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
-                <div class="bg-white py-2 collapse-inner rounded">
-                    <h6 class="collapse-header">States:</h6>
-
-                </div>
-            </div>
+<!--            <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">-->
+<!--                <div class="bg-white py-2 collapse-inner rounded">-->
+<!--                    <h6 class="collapse-header">States:</h6>-->
+<!--                </div>-->
+<!--            </div>-->
         </li>
 
         <!-- Nav Item - Utilities Collapse Menu -->
@@ -89,13 +106,13 @@
             <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages"
                aria-expanded="true" aria-controls="collapseUtilities">
                 <i class="fas fa-fw fa-calendar"></i>
-                <span>保健品</span>
+                <span>map</span>
             </a>
             <div id="collapsePages" class="collapse" aria-labelledby="collapsePages"
                  data-parent="#accordionSidebar">
                 <div class="bg-white py-2 collapse-inner rounded">
                     <h6 class="collapse-header">Content:</h6>
-
+                    <a class="collapse-item" href="{% url 'map' %}">Demo_map</a>
                 </div>
             </div>
         </li>
@@ -105,7 +122,7 @@
             <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities"
                aria-expanded="true" aria-controls="collapseUtilities">
                 <i class="fas fa-fw fa-wrench"></i>
-                <span>待定1</span>
+                <span>TBA</span>
             </a>
             <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities"
                  data-parent="#accordionSidebar">
@@ -121,7 +138,7 @@
             <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePagesTwo"
                aria-expanded="true" aria-controls="collapseUtilities">
                 <i class="fas fa-fw fa-calendar"></i>
-                <span>待定2</span>
+                <span>TBA</span>
             </a>
             <div id="collapsePagesTwo" class="collapse" aria-labelledby="collapsePages"
                  data-parent="#accordionSidebar">

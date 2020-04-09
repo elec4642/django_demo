@@ -2,11 +2,11 @@ version: '3'
 
 services:
   web:
-    container_name : waferroll
+    container_name : django_demo
     image: allentpg/waferroll
     #build: .
     command: python manage.py runserver 0.0.0.0:8000
     volumes:
-      - /Users/siweiliu/Desktop/wafer-roll:/code
+      - /Users/siweiliu/Desktop/django_demo:/code
     ports:
       - "8000:8000"
